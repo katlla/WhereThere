@@ -1,0 +1,57 @@
+[
+{"name":"Spencer Street / Flinders Street","stop":"1","coords":[-37.8209727006422,144.95546153634]}
+,
+{"name":"Spencer Street / La Trobe Street","stop":"1","coords":[-37.8131808646266,144.951494067063]}
+,
+{"name":"Albert Street / Nicholson Street","stop":"10","coords":[-37.8095620152221,144.9729140577]}
+,
+{"name":"Nicholson Street / Victoria Parade","stop":"10","coords":[-37.808010627252,144.973103650204]}
+,
+{"name":"King Street / La Trobe Street","stop":"2","coords":[-37.8124879190136,144.95393532853]}
+,
+{"name":"Melbourne Aquarium / Flinders Street","stop":"2","coords":[-37.8202377876742,144.957863143026]}
+,
+{"name":"Market Street / Flinders Street","stop":"3","coords":[-37.8192231940198,144.961401401035]}
+,
+{"name":"William Street / La Trobe Street","stop":"3","coords":[-37.811771477659,144.956440597202]}
+,
+{"name":"Elizabeth Street / Flinders Street","stop":"4","coords":[-37.8183244047116,144.964479208548]}
+,
+{"name":"Queen Street / La Trobe Street","stop":"4","coords":[-37.811059281549,144.958917451357]}
+,
+{"name":"Swanston Street / Flinders Street","stop":"5","coords":[-37.8176316459819,144.966904559468]}
+,
+{"name":"Elizabeth Street / La Trobe Street","stop":"5","coords":[-37.8103543780262,144.961368500449]}
+,
+{"name":"Russell Street / Flinders Street","stop":"6","coords":[-37.816673386781,144.970155871038]}
+,
+{"name":"Swanston Street / La Trobe Street","stop":"6","coords":[-37.8096188493133,144.96384957049]}
+,
+{"name":"Russell Street / La Trobe Street","stop":"7","coords":[-37.8088769991954,144.966344745383]}
+,
+{"name":"Exhibition Street / Flinders Street","stop":"7","coords":[-37.8161453758528,144.971969461816]}
+,
+{"name":"Exhibition Street / La Trobe Street","stop":"8","coords":[-37.8081489616439,144.968793237982]}
+,
+{"name":"Spring Street / Flinders Street","stop":"8","coords":[-37.8153885922326,144.974533938225]}
+,
+{"name":"Parliament / Collins Street","stop":"8","coords":[-37.8135811688434,144.974063605094]}
+,
+{"name":"Victoria Street / La Trobe Street","stop":"9","coords":[-37.8076029305692,144.970700541939]}
+,
+{"name":"Etihad Statium / La Trobe Street","stop":"D1","coords":[-37.814591783811,144.946550558628]}
+,
+{"name":"New Quay Promenade / Docklands Drive","stop":"D10","coords":[-37.8134148571389,144.94137823891]}
+,
+{"name":"Waterfront City / Docklands Drive","stop":"D11","coords":[-37.8144645658134,144.938645562035]}
+,
+{"name":"Central Pier / Harbour Esplanade","stop":"D2","coords":[-37.815426587077,144.945120634631]}
+,
+{"name":"Bourke Street / Harbour Esplanade","stop":"D3","coords":[-37.8186557144191,144.946508371571]}
+,
+{"name":"Docklands Park / Harbour Esplanade","stop":"D4","coords":[-37.8221572277468,144.947733063713]}
+,
+{"name":"The Goods Shed / Wurundjeri Way","stop":"D5","coords":[-37.8219046515637,144.951098556582]}
+,
+{"name":"Victoria Police Centre / Flinders Street","stop":"D6","coords":[-37.8215391185689,144.953569129981]}
+]
