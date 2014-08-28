@@ -1,0 +1,29 @@
+{
+  "name": "WhereThere",
+  "version": "0.0.0",
+  "description": "Find the best way to walk from A to B",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify index.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katlla/WhereThere.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katlla/WhereThere/issues"
+  },
+  "homepage": "https://github.com/katlla/WhereThere",
+  "devDependencies": {},
+  "dependencies": {
+    "browserify": "^5.10.1",
+    "express": "^4.8.6",
+    "st": "^0.5.1",
+    "turf-center": "^0.1.1",
+    "turf-linestring": "^0.1.1",
+    "turf-point": "^0.1.6"
+  }
+}
