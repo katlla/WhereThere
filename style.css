@@ -1,0 +1,35 @@
+#map { height: 400px; margin: 0 0 12px; }
+
+.there, .where {
+	padding: 80px 30px;
+}
+
+.diagonal {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background-image: linear-gradient(130deg, rgba(50, 188, 205, 0.7) 50%, rgba(208, 255, 0, 0.7) 50%);
+	background-size: 100% 100%;
+}
+
+.diagonal a {
+	color: white;
+	font-size: 4em;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.there p {
+	text-align: right;
+}
+body.home {
+	position: relative;
+	height: 100%;
+	background-image: url('img/stravaHeatMap.png');
+}
+
+html {
+	height: 100%;
+}

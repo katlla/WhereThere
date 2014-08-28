@@ -28,12 +28,12 @@ function showPosition(position) {
 
     //map markers
     var marker = L.marker([lat,lon]).addTo(map)
-        .bindPopup("<b>To there!</b><br />Destination.").openPopup();
+        .bindPopup("<b>Start here!</b><br />").openPopup();
 
     function onMapClick(e) {
         L.popup()
             .setLatLng(e.latlng)
-            .setContent("Start my journey at " + e.latlng.toString())
+            .setContent("Finish here.")
             .openOn(map);
     }
 
