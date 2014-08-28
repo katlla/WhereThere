@@ -10,6 +10,10 @@ var mount = require('st')({
 var port = process.env.NODE_PORT || process.env.PORT || 3000;
 
 app.get('/bundle.js', function(req, res) {
+  res.writeHead(200, {
+    'Content-Type': 'application/javascript'
+  });
+
   require('browserify')(__dirname + '/index.js').bundle().pipe(res);
 });
 
