@@ -8,8 +8,8 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 	id: 'examples.map-i86knfo3'
 }).addTo(map);
 
-L.marker([-37.8259, 144.9524]).addTo(map)
-			.bindPopup("<b>From here!</b><br />Current location.").openPopup();
+L.marker([-37.818123, 144.967201]).addTo(map)
+			.bindPopup("<b>To there!</b><br />Destination.").openPopup();
 
 var popup = L.popup();
 
