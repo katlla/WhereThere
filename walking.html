@@ -11,6 +11,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 <header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
@@ -41,27 +44,15 @@
 </header>
 
 <div class='container-fluid'>        
-  <h2>Record a way</h2>
-  <form action="walking.html">
-    <div class="form-group">
-      <div class="radio">
-        <label>
-          <input type="radio" name="transportMode" id="transportModeWalk" value="walk" checked>
-          Walk
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="transportMode" id="transportModeBike" value="bike" checked>
-          Bike
-        </label>
-      </div>
-    </div>
-    <div class="form-group">
-      <input type="submit" value="Start Recording" class="btn btn-success btn-lge">
-    </div>
-    </form>
-	</div>
+  <p><strong>Recording..</strong></p>
+
+  <div id="map"></div>
+
+  <div class="form-group">
+    <button class="btn btn-danger btn-lge">Stop Recording</button>
+  </div>
+</div>
     
+    <script src="bundle.js"></script>
   </body>
 </html>
