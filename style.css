@@ -1,4 +1,15 @@
-.map { height: 300px; margin: 0 0 12px; }
+.navbar {
+  margin-bottom: 0px;
+}
+
+.container-fluid {
+  margin: 0px;
+  padding: 0px;
+}
+
+.map {
+  height: calc(100vh - 50px);
+}
 
 .there, .where {
 	padding: 80px 30px;
@@ -32,6 +43,10 @@
 
 .stats {
 	margin: 12px 0 0;
+}
+
+body {
+  overflow-y: hidden;
 }
 
 body.home {
