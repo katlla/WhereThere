@@ -1,6 +1,10 @@
-var center = require('turf-center');
+var JSONStream = require('JSONStream');
 var point = require('turf-point');
 var linestring = require('turf-linestring');
+var request = require('hyperquest');
+var es = require('event-stream');
+var pinner = require('./lib/pinner');
+var centerer = require('./lib/centerer');
 
 var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
 var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -16,6 +20,16 @@ function getLocation() {
     }
 }
 
+function pinTrams(map) {
+  var req = request(location.origin + '/data/citycircle.json');
+
+  console.log('pinning trams', req);
+  req
+    .pipe(JSONStream.parse('*'))
+    .pipe(pinner(map))
+    .pipe(centerer(map));
+}
+
 function showPosition(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
@@ -24,18 +38,7 @@ function showPosition(position) {
     var markerlon = 145.0000;
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([lat,lon], 13);
-
-    //map markers
-    var marker = L.marker([lat,lon]).addTo(map)
-        .bindPopup("<b>Start here!</b><br />").openPopup();
-
-    function onMapClick(e) {
-        L.popup()
-            .setLatLng(e.latlng)
-            .setContent("Finish here.")
-            .openOn(map);
-    }
+    var map = L.map('map').setView([lat,lon], 14);
 
     L.tileLayer(url, {
         subdomains: ['','a.','b.','c.','d.'],
@@ -45,7 +48,7 @@ function showPosition(position) {
         attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
     }).addTo(map);
 
-    map.on('click', onMapClick);
+    pinTrams(map);
 }
 
 switch (location.pathname) {
