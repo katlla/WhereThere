@@ -14,6 +14,9 @@ var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
     return s.toLowerCase();
 });
 
+var startLat;
+var startLng;
+
 //auto detect location
 function getLocation() {
     if (navigator.geolocation) {
@@ -34,8 +37,8 @@ function pinTrams(map) {
 }
 
 function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+    var lat = startLat = position.coords.latitude;
+    var lon = startLng =position.coords.longitude;
 
     var markerlat = -37.8333;
     var markerlon = 145.0000;
@@ -61,8 +64,25 @@ function showPosition(position) {
 
 function markers(map) {
     function onMapClick(e) {
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
         L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
           .bindPopup("<b>Finish here</b>").openPopup();
+
+        var dir;
+
+        dir = MQ.routing.directions();
+         
+        dir.route({
+            locations: [
+                { latLng: { lat: startLat, lng: startLng } },
+                { latLng: { lat: lat, lng: lng } },
+            ]
+        });
+         
+        map.addLayer(MQ.routing.routeLayer({
+            directions: dir
+        }));
     }
 
     map.on('click', onMapClick);
