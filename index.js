@@ -40,8 +40,13 @@ function showPosition(position) {
     var markerlat = -37.8333;
     var markerlon = 145.0000;
 
+    var message = location.pathname === '/walking.html' ? 'Recording from point' : 'Start here';
+
     // create a map in the "map" div, set the view to a given place and zoom
     map = L.map('map').setView([lat,lon], 14);
+
+    var marker = L.marker([lat,lon]).addTo(map)
+        .bindPopup("<b>" + message + "</b>").openPopup();
 
     L.tileLayer(url, {
         subdomains: ['','a.','b.','c.','d.'],
@@ -54,10 +59,22 @@ function showPosition(position) {
     events.emit('map', map);
 }
 
+function markers(map) {
+    function onMapClick(e) {
+        L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
+          .bindPopup("<b>Finish here</b>").openPopup();
+    }
+
+    map.on('click', onMapClick);
+}
+
 switch (location.pathname) {
   case '/map.html': {
     getLocation();
-    events.once('map', pinTrams).
+    events.once('map', function (map) {
+      pinTrams(map);
+      markers(map)
+    });
 
     break;
   }
