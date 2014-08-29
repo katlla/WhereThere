@@ -1,10 +1,10 @@
 var JSONStream = require('JSONStream');
-var center = require('turf-center');
 var point = require('turf-point');
 var linestring = require('turf-linestring');
 var request = require('hyperquest');
 var es = require('event-stream');
 var pinner = require('./lib/pinner');
+var centerer = require('./lib/centerer');
 
 var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
 var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -26,7 +26,8 @@ function pinTrams(map) {
   console.log('pinning trams', req);
   req
     .pipe(JSONStream.parse('*'))
-    .pipe(pinner(map));
+    .pipe(pinner(map))
+    .pipe(centerer(map));
 }
 
 function showPosition(position) {
@@ -37,18 +38,7 @@ function showPosition(position) {
     var markerlon = 145.0000;
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([lat,lon], 13);
-
-    //map markers
-    var marker = L.marker([lat,lon]).addTo(map)
-        .bindPopup("<b>Start here!</b><br />").openPopup();
-
-    function onMapClick(e) {
-        L.popup()
-            .setLatLng(e.latlng)
-            .setContent("Finish here.")
-            .openOn(map);
-    }
+    var map = L.map('map').setView([lat,lon], 14);
 
     L.tileLayer(url, {
         subdomains: ['','a.','b.','c.','d.'],
@@ -59,8 +49,6 @@ function showPosition(position) {
     }).addTo(map);
 
     pinTrams(map);
-
-    map.on('click', onMapClick);
 }
 
 switch (location.pathname) {
