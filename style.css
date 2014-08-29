@@ -59,3 +59,15 @@ body.home {
 html {
 	height: 100%;
 }
+
+/* recording page styles */
+
+div[data-section="recording"] .map {
+  height: calc(100vh - 140px);
+}
+
+div[data-section="recording"] .form-group {
+  padding: 10px;
+}
+
+
