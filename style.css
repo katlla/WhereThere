@@ -1,10 +1,5 @@
-.navbar {
+body.fullscreen .navbar {
   margin-bottom: 0px;
-}
-
-.container-fluid {
-  margin: 0px;
-  padding: 0px;
 }
 
 .map {
@@ -63,11 +58,11 @@ html {
 /* recording page styles */
 
 div[data-section="recording"] .map {
-  height: calc(100vh - 140px);
+  height: calc(100vh - 180px);
 }
 
-div[data-section="recording"] .form-group {
-  padding: 10px;
+.stop-button {
+	padding-top: 10px;
 }
 
 
