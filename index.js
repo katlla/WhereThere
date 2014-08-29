@@ -5,6 +5,9 @@ var request = require('hyperquest');
 var es = require('event-stream');
 var pinner = require('./lib/pinner');
 var centerer = require('./lib/centerer');
+var EventEmitter = require('eventemitter3');
+var events = new EventEmitter();
+var map;
 
 var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
 var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -38,7 +41,7 @@ function showPosition(position) {
     var markerlon = 145.0000;
 
     // create a map in the "map" div, set the view to a given place and zoom
-    var map = L.map('map').setView([lat,lon], 14);
+    map = L.map('map').setView([lat,lon], 14);
 
     L.tileLayer(url, {
         subdomains: ['','a.','b.','c.','d.'],
@@ -48,11 +51,18 @@ function showPosition(position) {
         attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
     }).addTo(map);
 
-    pinTrams(map);
+    events.emit('map', map);
 }
 
 switch (location.pathname) {
   case '/map.html': {
+    getLocation();
+    events.once('map', pinTrams).
+
+    break;
+  }
+
+  case '/walking.html': {
     getLocation();
     break;
   }
