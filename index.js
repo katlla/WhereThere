@@ -26,9 +26,6 @@ function pinTrams(map) {
   console.log('pinning trams', req);
   req
     .pipe(JSONStream.parse('*'))
-    .pipe(es.map(function(data, callback) {
-      callback(null, data);
-    }))
     .pipe(pinner(map));
 }
 
