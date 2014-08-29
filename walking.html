@@ -15,7 +15,7 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body class="fullscreen">
 <header class="navbar navbar-static-top navbar-inverse" id="top" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -43,16 +43,10 @@
   </div>
 </header>
 
-<div class='container-fluid'>
-  <p><strong>Recording..</strong></p>
-</div>
 <div data-section="recording">
   <div class="map" id="map"></div>
+  <a class="btn btn-danger btn-lge floaty" href="finish.html">Stop Recording</a>
 </div>
-<div class='container-fluid stop-button'>
-  <div class="form-group">
-    <a class="btn btn-danger btn-lge" href="finish.html">Stop Recording</a>
-  </div>
 </div>
 
     <script src="bundle.js"></script>

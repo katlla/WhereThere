@@ -57,12 +57,12 @@ html {
 
 /* recording page styles */
 
-div[data-section="recording"] .map {
-  height: calc(100vh - 180px);
-}
-
 .stop-button {
 	padding-top: 10px;
 }
 
-
+.floaty {
+	position: absolute;
+	bottom: 45px;
+	right: 15px;
+}
