@@ -1,6 +1,10 @@
+var JSONStream = require('JSONStream');
 var center = require('turf-center');
 var point = require('turf-point');
 var linestring = require('turf-linestring');
+var request = require('hyperquest');
+var es = require('event-stream');
+var pinner = require('./lib/pinner');
 
 var tonerUrl = "http://{S}tile.stamen.com/toner/{Z}/{X}/{Y}.png";
 var url = tonerUrl.replace(/({[A-Z]})/g, function(s) {
@@ -14,6 +18,18 @@ function getLocation() {
     } else {
         alert("Your browser doesn't support your location")
     }
+}
+
+function pinTrams(map) {
+  var req = request(location.origin + '/data/citycircle.json');
+
+  console.log('pinning trams', req);
+  req
+    .pipe(JSONStream.parse('*'))
+    .pipe(es.map(function(data, callback) {
+      callback(null, data);
+    }))
+    .pipe(pinner(map));
 }
 
 function showPosition(position) {
@@ -44,6 +60,8 @@ function showPosition(position) {
         type: 'png',
         attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
     }).addTo(map);
+
+    pinTrams(map);
 
     map.on('click', onMapClick);
 }
